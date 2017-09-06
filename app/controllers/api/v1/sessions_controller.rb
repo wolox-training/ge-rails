@@ -14,9 +14,10 @@ module Api
           render_error('Invalid email or password', :unauthorized)
         end
       end
+
       # TODO: Refactor and remove rubocop exception
       # rubocop:disable Metrics/AbcSize
-
+      # rubocop:disable Metrics/MethodLength
       def renew
         if !authentication_manager.warning_expiration_date_reached?
           render_error('Warning expiration date has not been reached', :forbidden)
@@ -30,6 +31,7 @@ module Api
           render json: { access_token: access_token }, status: :ok
         end
       end
+      # rubocop:enable Metrics/MethodLength
       # rubocop:enable Metrics/AbcSize
 
       def invalidate_all
