@@ -28,6 +28,7 @@ before_script:
   - psql -c "CREATE DATABASE \"wbooks-api_test\" ENCODING 'utf8';" -U postgres
 
 script:
+  - bundle exec rspec spec -fd
   - bundle exec rubocop app spec -R
 
 cache:
