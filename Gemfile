@@ -43,15 +43,20 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'database_cleaner', '~> 1.6.1'
+  gem 'factory_girl', '~> 4.8.0'
+  gem 'faker', '~> 1.8.4'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', '~> 0.49.1'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.5.1'
+  gem 'shoulda', '~> 3.5.0'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
