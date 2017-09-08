@@ -9,7 +9,7 @@ module Api
 
       def show
         @book = Book.find(params[:id])
-        render json: @book, serializer: BookSerializer
+        render json: @book, serializer: BookImageSerializer
       end
     end
   end
