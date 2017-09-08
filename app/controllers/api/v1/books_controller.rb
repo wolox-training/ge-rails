@@ -1,8 +1,9 @@
 # app/controllers/api/v1/books_controller.rb
 module Api
   module V1
-    class BooksController < ApplicationController
+    class BooksController < ApiController
       include Wor::Paginate
+      before_action :authenticate_request
       def index
         @books = Book.all
         render_paginated json: @books
