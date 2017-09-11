@@ -3,6 +3,6 @@ class RentSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :book
   def returned_at
-    object.to > Time.zone.today ? null : object.to
+    object.to > Time.zone.today ? nil : object.to
   end
 end

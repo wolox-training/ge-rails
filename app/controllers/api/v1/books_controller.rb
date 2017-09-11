@@ -6,7 +6,7 @@ module Api
       before_action :authenticate_request
       def index
         @books = Book.all
-        render_paginated json: @books
+        render_paginated @books, each_serializer: BookSerializer
       end
 
       def show
