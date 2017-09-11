@@ -15,7 +15,7 @@ describe Api::V1::BooksController, type: :controller do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
           books, each_serializer: BookSerializer
         ).to_json
-        expect(JSON.parse(@response.body)).to eq JSON.parse(expected)
+        expect(JSON.parse(@response.body)['page']).to eq JSON.parse(expected)
       end
 
       it 'responds with 200 status' do
@@ -33,7 +33,7 @@ describe Api::V1::BooksController, type: :controller do
       end
 
       it 'responses with the user rent json' do
-        expect(JSON.parse(@response.body)).to eq JSON.parse(
+        expect(JSON.parse(@response.body)['book']).to eq JSON.parse(
           BookImageSerializer.new(book, root: false).to_json
         )
       end
