@@ -6,7 +6,7 @@ class AuthenticationTokenManager
     end
 
     def decode(token)
-      payload = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
+      payload = JWT.decode(token, Rails.application.secrets.secret_key_base, nil)[0]
       AuthenticationDecodedToken.new(payload)
     rescue
       nil
