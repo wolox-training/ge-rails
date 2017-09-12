@@ -1,0 +1,12 @@
+es:
+  book:
+    title: "Título del libro"
+    genre: "Género del libro"
+    publisher: "Editorial del libro"
+    author: "Autor del libro"
+  rent:
+    start: "Fecha de inicio"
+    end: "Fecha de retorno"
+    date: "Fecha de hoy"
+  mail:
+    title: "Detalles de su préstamo"
