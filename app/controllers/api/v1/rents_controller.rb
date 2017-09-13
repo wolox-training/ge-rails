@@ -12,6 +12,7 @@ module Api
       def create
         @rent = Rent.new(rent_params)
         if @rent.save
+          MailerWorker.perform_async(@rent.id)
           render json: @rent
         else
           render json: { errors: @rent.errors.full_messages }, status: :bad_request
