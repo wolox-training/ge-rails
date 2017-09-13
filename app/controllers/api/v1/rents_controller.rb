@@ -4,12 +4,13 @@ module Api
     class RentsController < ApiController
       before_action :authenticate_request
       def index
-        @rents = Rent.all
+        @rents = policy_scope(Rent.all)
         render json: @rents
       end
 
       def create
         @rent = Rent.new(rent_params)
+        authorize @rent
         if @rent.save
           MailerWorker.perform_async(@rent.id)
           render json: @rent
