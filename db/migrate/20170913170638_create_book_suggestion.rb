@@ -1,6 +1,6 @@
-class CreateBookSugestions < ActiveRecord::Migration[5.1]
+class CreateBookSuggestion < ActiveRecord::Migration[5.1]
   def change
-    create_table :book_sugestions do |t|
+    create_table :book_suggestions do |t|
       t.string :editorial
       t.float :price
       t.string :author
