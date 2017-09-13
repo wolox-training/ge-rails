@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # API Endpoints
   api_version(module: 'api/v1', path: { value: 'api/v1' }, defaults: { format: :json }) do
     resources :books, only: %i[index show]
+    resources :rents, only: %i[index create]
     resources :users do
       collection do
         resources :sessions, only: [:create] do
