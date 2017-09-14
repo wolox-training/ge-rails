@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20170913172348) do
   end
 
   create_table "book_suggestions", force: :cascade do |t|
-    t.string "editorial"
-    t.float "price"
+    t.string "editorial", default: ""
+    t.float "price", default: 0.0
     t.string "author"
     t.string "title"
     t.string "link"
-    t.string "publisher"
-    t.string "year"
+    t.string "publisher", default: ""
+    t.string "year", default: "2017"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
