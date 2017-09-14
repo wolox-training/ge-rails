@@ -1,26 +1,37 @@
 require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 describe Api::V1::BookSuggestionsController, type: :controller do
-
   describe 'POST #create' do
     let!(:book_suggestion) { create(:book_suggestion) }
     context 'When creating a valid suggestion' do
-        before do
-            post :create, params: { editorial: book_suggestion.editorial, price: 2, title: book_suggestion.title, publisher: book_suggestion.publisher, year: book_suggestion.year, link: book_suggestion.link, author: book_suggestion.author, user_id: book_suggestion.user_id }
-        end
-        
-        it 'responds with 201 status' do
-          expect(response).to have_http_status(:created)
-        end
+      before do
+        post :create, params: { editorial: book_suggestion.editorial,
+                                price: 2,
+                                title: book_suggestion.title,
+                                publisher: book_suggestion.publisher,
+                                year: book_suggestion.year,
+                                link: book_suggestion.link,
+                                author: book_suggestion.author,
+                                user_id: book_suggestion.user_id }
+      end
+
+      it 'responds with 201 status' do
+        expect(response).to have_http_status(:created)
+      end
     end
     context 'When creating an invalid suggestion' do
       before do
-        post :create,  params: { editorial: book_suggestion.editorial, price: 2, publisher: book_suggestion.publisher, year: book_suggestion.year, author: book_suggestion.author, user_id: book_suggestion.user_id }
+        post :create, params: { editorial: book_suggestion.editorial,
+                                price: 2,
+                                publisher: book_suggestion.publisher,
+                                year: book_suggestion.year,
+                                author: book_suggestion.author,
+                                user_id: book_suggestion.user_id }
       end
 
       it 'doesn\'t create a new book suggestion' do
         expect do
-          post :create, params: {  }
+          post :create, params: {}
         end.to change { BookSuggestion.count }.by(0)
       end
 
