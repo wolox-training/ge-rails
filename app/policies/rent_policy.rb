@@ -17,7 +17,7 @@ class RentPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.select { |rent| rent.user.id == user.id }
+      scope.where(user: user)
     end
   end
 end
