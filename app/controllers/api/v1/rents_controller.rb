@@ -5,12 +5,13 @@ module Api
       include Wor::Paginate
       before_action :authenticate_request
       def index
-        @rents = Rent.all
+        @rents = policy_scope(Rent.all)
         render_paginated @rents
       end
 
       def create
         @rent = Rent.new(rent_params)
+        authorize @rent
         if @rent.save
           MailerWorker.perform_async(@rent.id)
           render json: @rent
