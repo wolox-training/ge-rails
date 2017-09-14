@@ -1,12 +1,12 @@
-class RentPolicy < ApplicationPolicy
-  attr_reader :user, :rent
-  def initialize(user, rent)
+class BookPolicy < ApplicationPolicy
+  attr_reader :user, :book
+  def initialize(user, _book)
     @user = user
-    @rent = rent
+    @book = rent
   end
 
-  def create?
-    @rent.user_id == user.id
+  def show?
+    true
   end
   class Scope
     attr_reader :user, :scope
@@ -17,7 +17,7 @@ class RentPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(user: user)
+      scope
     end
   end
 end
