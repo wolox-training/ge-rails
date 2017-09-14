@@ -7,6 +7,6 @@ FactoryGirl.define do
       year       { Faker::Number.number(4) }
       price      { Faker::Number.number(4) }
       link       { Faker::Name.name }
-      user_id    { 1 }
+      association :user
     end
   end
