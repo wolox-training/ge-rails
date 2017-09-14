@@ -25,7 +25,7 @@ describe Api::V1::BookSuggestionsController, type: :controller do
       end
 
       it 'returns error messages' do
-        expect(response['error']).to be_present
+        expect(response_body['errors']).to be_present
       end
 
       it 'responds with 400 status' do
