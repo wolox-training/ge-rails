@@ -2,10 +2,11 @@
 module Api
   module V1
     class RentsController < ApiController
+      include Wor::Paginate
       before_action :authenticate_request
       def index
         @rents = policy_scope(Rent.all)
-        render json: @rents
+        render_paginated @rents
       end
 
       def create
