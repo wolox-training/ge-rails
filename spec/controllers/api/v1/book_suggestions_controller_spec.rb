@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable Metrics/BlockLength
+
 describe Api::V1::BookSuggestionsController, type: :controller do
   describe 'POST #create' do
     let!(:book_suggestion) { create(:book_suggestion) }
@@ -32,7 +32,7 @@ describe Api::V1::BookSuggestionsController, type: :controller do
       it 'doesn\'t create a new book suggestion' do
         expect do
           post :create, params: {}
-        end.to change { BookSuggestion.count }.by(0)
+        end.to_not(change { BookSuggestion.count })
       end
 
       it 'returns error messages' do

@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable Metrics/BlockLength
+
 describe Api::V1::BooksController, type: :controller do
   include_context 'Authenticated User'
 
