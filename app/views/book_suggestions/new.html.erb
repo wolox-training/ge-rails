@@ -1,0 +1,21 @@
+<h1>Books suggestions</h1>
+
+<%= render 'book_suggestions' %>
+
+<form name="bookSuggestions" id="bookSuggestions" action="/api/v1/book_suggestions">
+  Author:<br>
+  <input type="text" name="author" id="author"><br>
+  Title:<br>
+  <input type="text" name="title" id="title"><br>
+  Publisher:<br>
+  <input type="text" name="publisher" id="publisher"><br>
+  Editorial:<br>
+  <input type="text" name="editorial" id="editorial"><br>
+  Year:<br>
+  <input type="text" name="year" id="year"><br>
+  Link:<br>
+  <input type="text" name="link" id="link"><br>
+  Price:<br>
+  <input type="text" name="price" id="price"><br>
+  <button type="submit">Create</button>
+</form>
