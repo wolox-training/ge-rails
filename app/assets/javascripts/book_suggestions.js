@@ -5,20 +5,17 @@ $(function () {
       $.ajax({
         type: "POST",
         url: $form.attr('action'),
-        data: { 
-          book_suggestion: {
-            author: $form.find('#author').val(),
-            title: $form.find('#title').val(),
-            publisher: $form.find('#publisher').val(),
-            year: $form.find('#year').val(),
-            price: $form.find('#price').val(),
-            editorial: $form.find('#editorial').val(),
-            link: $form.find('#link').val()
-          }
-        },
+        data: $form.serialize(),
         dataType: "JSON",
         success: function (book) {
-          $('#booktable').append(newRow(book));
+          $.ajax({
+            type: "GET",
+            url: "/api/v1/book_suggestions",
+            dataType: "JSON",
+            success: function (data) {
+              console.log(data)
+            }
+          });
         },
         error: function (data) {
           data.responseJSON.errors.forEach((err) => {

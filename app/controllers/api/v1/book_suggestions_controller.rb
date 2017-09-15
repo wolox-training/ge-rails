@@ -3,7 +3,6 @@ module Api
     class BookSuggestionsController < ApiController
       include Wor::Paginate
       skip_before_action :authenticate_request
-      respond_to :html, :js
 
       def index
         @book_suggestions = BookSuggestion.all
