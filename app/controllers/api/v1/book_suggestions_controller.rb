@@ -20,7 +20,8 @@ module Api
       end
 
       def book_suggestion_params
-        params.require(:book_suggestion).permit(:editorial, :user_id, :price, :author, :title, :link, :publisher, :year)
+        params.require(:book_suggestion).permit(:editorial, :user_id, :price, :author, :title,
+                                                :link, :publisher, :year)
       end
     end
   end
