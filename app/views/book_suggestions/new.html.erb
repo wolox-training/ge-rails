@@ -1,0 +1,14 @@
+<h1>Books suggestions</h1>
+
+<%= render 'book_suggestions' %>
+
+<%= form_tag("/api/v1/book_suggestions") do %>
+  <br>Editorial: <%= text_field(:book_suggestion, :editorial) %><br>
+  <br>Author: <%= text_field(:book_suggestion, :author) %><br>
+  <br>Link: <%= text_field(:book_suggestion, :link) %><br>
+  <br>Publisher: <%= text_field(:book_suggestion, :publisher) %><br>
+  <br>Year: <%= text_field(:book_suggestion, :year) %><br>
+  <br>Titler: <%= text_field(:book_suggestion, :title) %><br>
+  <br>Price: <%= text_field(:book_suggestion, :price) %><br>
+  <button type="submit">Send</button>
+<% end %>

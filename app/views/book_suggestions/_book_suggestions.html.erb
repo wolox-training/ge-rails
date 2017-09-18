@@ -1,0 +1,20 @@
+<table id="booktable">
+<tr>
+  <th>title</th>
+  <th>author</th>
+  <th>publisher</th>
+  <th>editorial</th>
+  <th>year</th>
+  <th>price</th>
+</tr>
+<% @book_suggestions.each do |book| %>
+ <tr>
+   <td><%= book.title %></td>
+   <td><%= book.author %></td>
+   <td><%= book.publisher %></td>
+   <td><%= book.editorial %></td>
+   <td><%= book.year %></td>
+   <td><%= book.price %></td>
+ </tr>
+<% end %>
+</table>
