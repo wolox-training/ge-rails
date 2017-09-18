@@ -13,7 +13,9 @@ $(function () {
             url: "/api/v1/book_suggestions",
             dataType: "JSON",
             success: function (data) {
-              console.log(data)
+              data.page.each(book => {
+                console.log(book)
+              })
             }
           });
         },
