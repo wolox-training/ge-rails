@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  respond_to :html, :js
 
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

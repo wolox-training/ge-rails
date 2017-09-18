@@ -1,5 +1,4 @@
-class BookSuggestionsController < ApiController
-  skip_before_action :authenticate_request
+class BookSuggestionsController < ApplicationController
   def new
     @book_suggestions = BookSuggestion.all
   end
