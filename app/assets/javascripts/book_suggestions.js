@@ -13,7 +13,12 @@ $(function () {
             url: "/api/v1/book_suggestions",
             dataType: "JSON",
             success: function (data) {
-              console.log(data)
+              let newTable = "<table id='booktable'><tr><th>title</th><th>author</th><th>publisher</th><th>editorial</th><th>year</th><th>price</th></tr>";
+              data.page.forEach(book => {
+               newTable += newRow(book);
+              });
+              newTable += "</table>";
+              $('#booktable').replaceWith(newTable)
             }
           });
         },
